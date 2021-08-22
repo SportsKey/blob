@@ -6,8 +6,7 @@ Steps to reproduce the issue:
 
    ```ruby
    bundle install
-   rake db:create
-   rake db:migrate
+   rake db:prepare
    rails server
    ```
 2. Visit `localhost:3000/folders/new` 
