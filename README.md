@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Steps to reproduce the issue:
 
-Things you may want to cover:
+1. Start the application:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   ```ruby
+   bundle install
+   rake db:create
+   rake db:migrate
+   rails server
+   ```
+2. Visit `localhost:3000/folders/new` 
+3. Create a Folder with a file
+4. Visit `localhost:3000/folders/1/edit`
+5. Press **Update Folder** without any changes
