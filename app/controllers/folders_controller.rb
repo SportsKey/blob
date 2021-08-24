@@ -12,7 +12,7 @@ class FoldersController < ApplicationController
 
   # GET /folders/new
   def new
-    @folder = Folder.new(documents: [1,2].map { Document.new })
+    @folder = Folder.new(documents: [Document.new])
   end
 
   # GET /folders/1/edit
@@ -37,7 +37,9 @@ class FoldersController < ApplicationController
   # PATCH/PUT /folders/1 or /folders/1.json
   def update
     respond_to do |format|
-      if @folder.update(folder_params)
+      form = FolderForm.new(@folder)
+
+      if form.validate(folder_params) && form.save
         format.html { redirect_to @folder, notice: "Folder was successfully updated." }
         format.json { render :show, status: :ok, location: @folder }
       else
